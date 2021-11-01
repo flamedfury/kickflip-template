@@ -1,0 +1,23 @@
+{
+  "name": "kickflip-template",
+  "version": "1.0.0",
+  "description": "a static site template that uses 11ty to build",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flamedfury/kickflip-template.git"
+  },
+  "author": "fLaMEd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flamedfury/kickflip-template/issues"
+  },
+  "homepage": "https://github.com/flamedfury/kickflip-template#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1"
+  }
+}

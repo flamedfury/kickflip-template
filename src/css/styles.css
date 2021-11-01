@@ -1,0 +1,242 @@
+/* fury base css */
+/* by fLaMEd <flamedfury.com>*/
+
+/* global */
+:root {
+  /* fonts */
+  --font-sans-serif: -apple-system, BlinkMacSystemFont, 'Inter', 'Helvetica Neue',
+  'Roboto', Roboto, Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+  'Segoe UI', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif",
+    Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia,
+    serif;
+  --font-mono: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",
+    "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+    "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier,
+    monospace;
+
+  /* text base values */
+  /* sets to 16px on most modern browsers */
+  --text-base-size: 1rem;
+  --text-base-line-height: 1.8rem;
+
+  /* major third scale progression for desktop- see https://type-scale.com/ */
+  --header-scale: 1.25;
+  --line-height: 1.3;
+
+  /* typescale ref: https://medium.com/codyhouse/create-your-design-system-part-1-typography-7c630d9092bd */
+  --h1: calc(
+    1rem * var(--header-scale) * var(--header-scale) * var(--header-scale) *
+      var(--header-scale)
+  );
+  --h2: calc(
+    1rem * var(--header-scale) * var(--header-scale) * var(--header-scale)
+  );
+  --h3: calc(1rem * var(--header-scale) * var(--header-scale));
+  --h4: calc(1rem * var(--header-scale));
+
+  /* colours */
+  --primary: #f05123;
+  --secondary: #cd380e;
+  --accent: #0ea6d2;
+  --light-primary: #f2f2f2;
+  --light-secondary: #eee;
+  --dark-primary: #444444;
+  --dark-secondary: #212121;
+
+  --colour-background: var(--light-primary);
+  --colour-background-alt: var(--light-secondary);
+  --colour-text-main: var(--dark-primary);
+  --colour-heading: var(--primary);
+  --colour-link: var(--primary);
+  --colour-link-visited: var(--secondary);
+  --colour-link-hover: var(--secondary);
+  --colour-link-active: var(--secondary);
+  --colour-text-selection: var(--light-primary);
+  --colour-background-selection: var(--primary);
+  --colour-border: var(--accent);
+  --colour-hr: var(--accent);
+  --colour-table-bg-secondary: var(--light-secondary);
+  --colour-code: var(--accent);
+  --colour-highlight: #ff0;
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+    /* minor third scale progression for mobile- see https://type-scale.com/ */
+    --header-scale-mobile: 1.2;
+    --line-height: 1.3;
+  }
+}
+
+/* we want all elements to include padding and borders in the box model calculation instead of adding those widths to any defined dimensions */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--text-base-size);
+  line-height: var(--text-base-line-height);
+}
+
+body {
+  background-color: var(--colour-background);
+  color: var(--colour-text-main);
+  font-family: var(--serif);
+  font-size: var(--text-base-size);
+  line-height: var(--text-base-height);
+}
+
+/* centers the page contents */
+header,
+nav,
+main,
+footer {
+  position: relative;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 3.5em;
+}
+
+nav {
+  text-align: left;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+main p {
+  margin-bottom: 2.5rem;
+}
+
+footer {
+  border-top: 1px solid var(--colour-border);
+  margin-top: 6rem;
+  margin-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* headers */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--colour-heading);
+  font-family: var(--font-sans-serif);
+  line-height: var(--line-height);
+  margin-bottom: 0.75rem;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+h1 {
+  font-size: var(--h1);
+}
+
+h2 {
+  font-size: var(--h2);
+}
+
+h3 {
+  font-size: var(--h3);
+}
+
+h4 {
+  font-size: var(--h4);
+}
+
+/* hyperlinks */
+a {
+  color: var(--colour-link);
+}
+
+a:hover {
+  color: var(--colour-link-hover);
+}
+
+/* images */
+
+/* scales the header image as window is resized */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* elements */
+::selection {
+  color: var(--colour-text-selection);
+  background-color: var(--colour-background-selection);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--colour-hr);
+}
+
+ul,
+ol {
+  margin-top: 0px;
+  margin-bottom: 2.5rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+blockquote {
+  background: var(--colour-background-alt);
+  border-left: 0.3rem solid var(--colour-border);
+  margin: 1.5rem 0rem;
+  padding: 0.5rem 1rem;
+}
+
+blockquote cite {
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+code {
+  background: var(--colour-background-alt);
+  border-radius: 6px;
+  color: var(--colour-code);
+  display: block;
+  font-family: var(--font-mono);
+  overflow-x: auto;
+  padding: 0.5rem;
+}
+
+/* tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  padding: 0.5rem;
+  text-align: left;
+}
+
+th {
+  border-bottom: 1px solid var(--colour-border);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--colour-table-bg-secondary);
+}
